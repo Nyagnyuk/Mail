@@ -1,0 +1,395 @@
+<?php
+$site = $_SERVER["SERVER_NAME"];
+
+$from_mail = "admin@$site";
+$to = "nyagnyuk@ukr.net";
+$subject = "Заявка c сайта $site";
+
+
+
+if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
+
+    $message  =' Имя: ' . $_POST['name'];
+    $message .= '<br/>Телефон: ' . $_POST['tel'];
+    $message .= '<br/>Email: ' . $_POST['email'];
+
+    $answer_free = file_get_contents("answer_free.html");
+    $answer_for_money = file_get_contents("answer_for_money.html");
+
+    if(isset($_POST['message'])){
+        $message .= '<br>Сообщение: ' .$_POST['message'];
+    }
+
+    if(isset($_POST['site'])){
+        $message .= '<br>Сообщение: ' .$_POST['site'];
+    }
+
+    $message .= "<br>Проверочная ссылка: ".$site.$_SERVER["REQUEST_URI"];
+
+    $headers  = "MIME-Version: 1.0\r\nContent-type: text/html; charset=utf-8\r\n";
+    $headers .= "From: $from_mail\r\n";
+    mail($to, $subject, $message, $headers);
+    // <input type="hidden" name="package" value="free">
+    if(isset($_POST["package"]) && $_POST["package"]=="free")
+        mail($_POST['email'], $subject, $answer_free, $headers);
+    else
+        mail($_POST['email'], $subject, $answer_for_money, $headers);
+
+    echo('<script type="text/javascript">
+    function ready (){
+        document.getElementsByClassName("modalMain")[0].classList.remove("hid");
+        setTimeout(function(){
+            document.getElementsByClassName("modalMain")[0].classList.add("hid");
+        },2000);
+    }
+    document.addEventListener("DOMContentLoaded", ready);
+</script>'
+    );
+}
+?>
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генератор продаж</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Генератор продаж">
+    <meta name="keywords" content="Генератор продаж, массовая рассылка в личные сообщения, рассылка сообщений, массовые рассылки, рекламное сообщение" >
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png?v=2">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png?v=2">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png?v=2">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png?v=2">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png?v=2">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png?v=2">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png?v=2">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png?v=2">
+    <link rel="manifest" href="img/manifest.json?v=2">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png?v=2">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+    <![endif]-->
+
+
+</head>
+<body>
+<header class="header jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="header_top">
+                <div class="top_lef "> Генератор продаж <br><span>1000</span><span class="client"> клиентов за копейки</span> </div>
+                <div class="top_right ">
+                    <ul>
+                        <li>Звоните нам по номерам</li>
+                        <li><a href="tel:+79852576393">+7(985) 257 63 93</a></li>
+                        <li><a href="tel:+74994042688">+7(499) 404 26 88</a></li>
+                        <li class="last"><a class="call_back test" href="#fanc">Обратный звонок</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <h1>Тысячи новых клиентов за копейки</h1>
+                <div class="header_text">Массовая рассылка в <span>личные сообщения</span> <br> на популярных досках объявления</div>
+            <div class="wow zoomIn">
+                <a class="test learn_more" href="#fanc">Узнать больше</a></div>
+                  </div>
+        <div class="row">
+            <div class="header_bottom">
+            <ul>
+                <li><div class="wrap_img"><img src="img/icon_coin.png" alt="coin"></div><span>Цена личного <br> сообщения</span></li>
+                <li><div class="wrap_img"><img src="img/icon_envelop.png" alt="envelop"></div><span>До миллиона сообщений<br> в сутки</span></li>
+                <li><div class="wrap_img"><img src="img/icon_target.png" alt="target"></div><span>Таргетинг по городам<br> и бизнес нишам</span></li>
+                <li><div class="wrap_img"><img src="img/icon_internet.png" alt="internet"></div><span>Ссылка на сайт и телефон <br>в каждом сообщении</span></li>
+            </ul>
+        </div>
+            </div>
+</div>
+</header>
+
+
+<section class="playground">
+    <div class="container">
+        <h4>Наша база - это 6 самых популярных досок для бесплатных объявлений,<br>
+            свыше <span>100 миллионов </span>контактов потенциальных клиентов!</h4>
+            <div class="row">
+                <ul class="ground">
+                    <li><div class="ground_img"><img src="img/pic_avito.png" alt="avito"></div><span>35 000 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_ishang.png" alt="ishang"></div><span>11 000 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_olz.png" alt="olx"></div><span>9 500 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_tioru.png" alt="tioru"></div><span>6 000 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_allbiz.png" alt="allbiz"></div><span>1 000 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_promua.png" alt="promua"></div><span>500 000 контактов</span></li>
+                    <li><div class="ground_img"><img src="img/pic_dubizzle.png" alt="dubizzle"></div><span>500 000 контактов</span></li>
+                </ul>
+            </div>
+        <div class="row country">
+            <h4>Наша программа ищет клиентов в <span>8 странах</span>:</h4>
+            <ul>
+                <li><img src="img/pic_Russia.png" alt="Russia"><span>Россия</span></li>
+                <li><img src="img/pic_Ukraine.png" alt="Ukraine"><span>Украина</span></li>
+                <li><img src="img/pic_Poland.png" alt="Poland"><span>Польша</span></li>
+                <li><img src="img/pic_Rumuniya.png" alt="Rumuniya"><span>Румыния</span></li>
+                <li><img src="img/pic_Bolgarya.png" alt="Bolgarya"><span>Болгария</span></li>
+                <li><img src="img/pic_Kazahstan.png" alt="Kazahstan"><span>Казахстан</span></li>
+                <li><img src="img/pic_Belarus.png" alt="Belarus"><span>Беларусь</span></li>
+                <li><img src="img/pic_uae.png" alt="uae"><span>UAE</span></li>
+            </ul>
+        </div>
+        <p>*Рассылка нашей программы по законодательству всех перечисленных стран не является спамом.</p>
+    </div>
+</section>
+
+<section class="why jumbotron jumbotron_why">
+    <div class="container">
+        <h2 class="white">Почему массовые рассылки - оптимальный вариант?</h2>
+        <div class="line"></div>
+        <ul>
+            <li><img src="img/thumb_down.png" alt="thumb_down"><span>Стоимость клика в ЯндексДирект<br> во многих нишах больше 500 <br>рубле</span></li>
+            <li><img src="img/thumb_down.png" alt="thumb_down"><span>Стоимость клика в социальных<br> сетях - от 50 до 200 рублей.</span></li>
+            <li><img  class="wow zoomIn " data-wow-duration="1.5s" src="img/thumd_up.png" alt="thumd_up"><span>В нашей программе стоимость<br> контакта с клиентом всего <br>
+1 копейка - это в тысячи раз <br>выгоднее!</span></li>
+        </ul>
+        <h4>На данный момент у программы нет аналогов - это отличная<br>
+            возможность опередить конкурентов!</h4>
+    </div>
+</section>
+
+<section class="service">
+    <div class="container">
+        <h2 class="black">Этот сервис подходит для:</h2>
+        <div class="line"></div>
+        <div class="row">
+            <ul>
+                <li><img src="img/pic_1.png" alt="foto"><span>Предпринимателей</span></li>
+                <li><img src="img/pic_2.png" alt="foto"><span>Маркетологов</span></li>
+                <li><img src="img/pic_3.png" alt="foto"><span>Инфобизнесменов</span></li>
+                <li><img src="img/pic_4.png" alt="foto"><span>Организаторов <br>мероприятий</span></li>
+                <li><img src="img/pic_5.png" alt="foto"><span>MLM и FMCG<br> компаний</span></li>
+                <li><img src="img/pic_6.png" alt="foto"><span>Служб такси</span></li>
+            </ul>
+        </div>
+        <p>Вообщем для всех, кому надо что-то продать...</p>
+        <div class="wow zoomIn">
+        <a class="more test"  href="#fanc">Узнать подробнее</a></div>
+    </div>
+</section>
+
+<section class="target jumbotron jumbotron_target">
+    <div class="container">
+        <h2 class="white">точная целевая аудитория:</h2>
+        <p>Каждый человек с средним или высоким уровнем дохода создаёт<br>
+            около 30 объявлений в течении жизни. Личные сообщения,<br>
+            в отличие от объявлений, более точный и целевой канал рекламы.</p>
+    </div>
+</section>
+
+<section class="how">
+    <div class="container">
+        <h2 class="black">как работает наш сервис</h2>
+        <div class="line"></div>
+        <div class="row">
+            <ul>
+                <li><img src="img/pic_10.png" alt="icon"><span>Вы выбираете Вашу<br>  целевую аудиторию</span></li>
+                <li><img src="img/pic_11.png" alt="icon"><span>Пишите рекламное <br>сообщение</span></li>
+                <li><img src="img/pic_12.png" alt="icon"><span>Добавляете телефоны <br>и адрес сайта</span></li>
+                <li><img src="img/pic_13.png" alt="icon"><span>Запускаете рассылку.<br>Всего 5 минут и Вы получили<br>поток клиентов!</span></li>
+            </ul>
+        </div>
+        <p class="need">Вам теперь не нужно тратить недели и месяцы на настройку контекстной<br> рекламы и таргетинга в социальных сетях!</p>
+        <p class="spam">*Рассылка нашей программы по законодательству всех перечисленных стран не является спамом.</p>
+    </div>
+</section>
+
+<section class="capabilities">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="black">Возможности программы:</h2>
+                <div class="line_cap"></div>
+                <ul>
+                    <li>Неограниченная рассылка до 1млн. сообщений в день</li>
+                    <li>Добавление ссылки Вашего сайта и номера телефона
+                        в отправляемом письме</li>
+                    <li>Парсинг нужных контактов из досок объявлений</li>
+                    <li>Таргетирование по городам, рубрикам, бизнес нишам</li>
+                    <li>Возможность удалённого управления программой</li>
+                    <li>Уникализация каждого отправляемого сообщения</li>
+                    <li>Поддержка Прокси-серверов, сервисов Рукапча и Антигейт</li>
+                    <li>СМС и Email рассылки потенциальным клиентам</li>
+                </ul>
+
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive" src="img/generator.png" alt="notebook">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cost">
+    <div class="container">
+        <h2 class="black">Стоимость пользования программой:</h2>
+        <div class="line"></div>
+        <div class="row">
+            <ul>
+                <li>
+                    <div class="cost_wrap">
+                        <div class="number_wrap">
+                            <p>1 месяц</p>
+                            <p class="number">9990</p>
+                            <p >рублей</p>
+                        </div>
+                        <a  class="test" href="#fanc">Заказать</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="cost_wrap">
+                        <div class="number_wrap">
+                            <p>1 месяц</p>
+                            <p class="cross">59400</p>
+                            <p class="number">24900</p>
+                            <p>рублей</p>
+                        </div>
+                        <a class="test"  href="#fanc">Заказать</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="cost_wrap">
+                        <div class="number_wrap">
+                            <p>1 месяц</p>
+                            <p class="cross">118000</p>
+                            <p class="number">39900</p>
+                            <p>рублей</p>
+                        </div>
+                        <a class="test" href="#fanc">Заказать</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <h2 class="black">хотите сделаем рассылку за вас (под ключ)?</h2>
+        <div class="line"></div>
+        <div class="row">
+            <table>
+                <thead class="key">
+                <tr >
+                    <th class="td_title"><span>Колличество<br> сообщений</span></th>
+                    <th class="td_number"><span>до<br> 100 000</span></th>
+                    <th class="td_number"><span>от 100 000 <br>до 500 000</span></th>
+                    <th class="td_number"><span>от 500 000 <br>до 1 000 000</span></th>
+                    <th class="td_number"><span>от <br>1 000 000</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="td_title"><span>Цена за<br> 1 соообщение</span></td>
+                    <td class="green"><span>9 коп</span></td>
+                    <td class="green"><span>11 коп</span></td>
+                    <td class="green"><span>7 коп</span></td>
+                    <td class="green"><span>5 коп</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="wow zoomIn">
+        <a class="test newsletter" href="#fanc">заказать рассылку</a></div>
+        <div class="row cost_down">
+            <div class="cost_left">
+                <p><span>Хотите протестировать программу?</span><br>
+               Скачайте демо-версию бесплатно!<br>
+                (рассылка 500 сообщений)</p>
+            </div>
+            <div class="cost_right">
+                <a class="test free wow zoomIn" href="#fanc_free">Скачать бесплатно</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer jumbotron jumbotron_footer">
+    <h2 class="white">остались вопросы?</h2>
+    <div class="line"></div>
+    <div class="row">
+        <div class="wrap_footer">
+            <p>Звоните с 9:00 до 18:00 по телефонам:</p>
+            <p><a href="tel:+99999999999">+9 999 999 99 99</a></p>
+            <p><a href="tel:+99999999999">+9 999 999 99 99</a></p>
+            <p>Или оставьте заявку на бесплатную демо-версию:</p>
+        </div>
+    </div>
+
+    <form action="index.php" class="form_footer " method="post">
+        <label><input type="text" name="name" required placeholder="Имя"></label>
+        <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
+        <label><input type="email" name="email" required placeholder="E-mail"></label>
+        <label><input type="submit" class=" wow zoomIn" value="получить демо-версию"></label>
+
+    </form>
+
+
+    <div class="footer_down">All right reserved 2017 &copy;</div>
+</footer>
+
+<div id="fanc">
+    <h2 class="black">Оставьте заявку, чтобы получить<br>
+        бесплатную версию и сделать<br>
+        пробную рассылку</h2>
+    <div class="line"></div>
+    <form action="index.php" method="post">
+        <label><input type="text" name="name" required placeholder="Имя"></label>
+        <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
+        <label><input type="email" name="email" required placeholder="E-mail"></label>
+        <label><input type="submit"  value="оставить заявку"></label>
+    </form>
+</div>
+
+
+<div id="fanc_free">
+    <h2 class="black">Оставьте заявку, чтобы получить<br>
+        бесплатную версию и сделать<br>
+        пробную рассылку</h2>
+    <div class="line"></div>
+    <form action="index.php" method="post">
+        <label><input type="text" name="name" required placeholder="Имя"></label>
+        <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
+        <label><input type="email" name="email" required placeholder="E-mail"></label>
+        <label><input type="hidden" name="package" value="free"></label>
+        <label><input type="submit"  value="оставить заявку"></label>
+    </form>
+</div>
+
+<div class="modalMain hid">
+    <div class="modalWrapper">
+        <p>Спасибо за заявку. Менеджер свяжется с Вами в ближайшее время</p>
+        <a href="index.php">OK</a>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+
+<script src="js/common.js"></script>
+</body>
+</html>
