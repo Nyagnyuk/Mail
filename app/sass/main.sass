@@ -68,15 +68,25 @@ ul
             color: #FFFFFF
             text-decoration: none
             font-size: 18px
-          .call_back
-            background-color: #1bb407
-            box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-            padding: 5px 20px
-            font-size: 12px
-            &:hover
-              background-color: lighten(#1bb407,10%)
-            &:focus
-              background-color: #179906
+            font-family: "SF UI Text-Medium", sans-serif
+          .wrap_a
+            display: inline-block
+            margin: 0 auto
+            a
+              color: #FFFFFF
+              display: block
+              width: 160px
+              text-decoration: none
+              font-size: 18px
+            .call_back
+              background-color: #1bb407
+              box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+              padding: 5px 20px
+              font-size: 12px
+              &:hover
+                background-color: lighten(#1bb407,10%)
+              &:focus
+                background-color: #179906
         .last
           margin-top: 10px
           text-align: center
@@ -93,18 +103,22 @@ ul
     margin-bottom: 40px
     span
       font-weight: 900
-  a
-    font-family: "SF UI Text-Medium" , sans-serif
-    padding: 10px 50px
-    color: #fff
-  .learn_more
-    background-color: #1bb407
-    box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-    border-radius: 3px
-    &:hover
-      background-color: lighten(#1bb407,10%)
-    &:focus
-      background-color: #179906
+  .wrap_more
+    display: inline-block
+    a
+      font-family: "SF UI Text-Medium" , sans-serif
+      padding: 10px 50px
+      color: #fff
+    .learn_more
+      background-color: #1bb407
+      box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+      border-radius: 3px
+      width: 200px
+      display: block
+      &:hover
+        background-color: lighten(#1bb407,10%)
+      &:focus
+        background-color: #179906
   .header_bottom
     margin-top: 100px
     padding-bottom: 45px
@@ -248,19 +262,23 @@ ul
     font-weight: 400
     padding-top: 45px
     padding-bottom: 45px
-  a
-    color: #fff
-    font-size: 16px
-    font-family: "SF UI Display-Regular" , sans-serif
-    font-weight: 400
-    padding: 20px 45px
-    background-color: #1bb407
-    border-radius: 3px
-    box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-    &:hover
-      background-color: lighten(#1bb407,10%)
-    &:focus
-      background-color: #179906
+  .wrap_find
+    display: inline-block 
+    a
+      color: #fff
+      width: 225px
+      display: block
+      font-size: 16px
+      font-family: "SF UI Display-Regular" , sans-serif
+      font-weight: 400
+      padding: 15px 45px
+      background-color: #1bb407
+      border-radius: 3px
+      box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+      &:hover
+        background-color: lighten(#1bb407,10%)
+      &:focus
+        background-color: #179906
 
 .target
   background-image: url(../img/fon_3.png)
@@ -347,40 +365,51 @@ ul
         border-radius: 15px
         box-shadow: 0 1px 1px rgba(13, 14, 15, 0.5)
         min-width: 240px
-        padding-top: 50px
-        padding-bottom: 40px
+        padding-top: 20px
+        padding-bottom: 15px
         .number_wrap
-          min-height: 200px
+          min-height: 230px
           p
             color: #222
             font-size: 24px
             font-family: "Circe Extra" , sans-serif
             font-weight: 700
             text-transform: uppercase
-            line-height: 10px
-            margin-bottom: 50px
+            line-height: 1
+            margin-bottom: 0
           .number
             color: #1bb407
             font-size: 60px
+            margin-top: 25px
+            margin-bottom: 25px
           .cross
             color: #b40707
             font-size: 36px
             text-decoration: line-through
-        a
-          background-color: #1bb407
-          border-radius: 3px
-          box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-          padding: 20px 50px
-          color: #fff
-          font-family: "SF UI Display-Regular" , sans-serif
-          font-weight: 400
-          font-size: 16px
-          text-transform: uppercase
-          line-height: 14px
-          &:hover
-            background-color: lighten(#1bb407,10%)
-          &:focus
-            background-color: #179906
+            margin-bottom: 18px
+            margin-top: 18px
+        .a_wrap
+          width: 100%
+          padding: 10px 15px
+          display: inline-block
+          a
+            display: block
+            width: 220px
+            background-color: #1bb407
+            border-radius: 3px
+            box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+            //padding: 20px 50px
+            padding: 20px
+            color: #fff
+            font-family: "SF UI Display-Regular" , sans-serif
+            font-weight: 400
+            font-size: 16px
+            text-transform: uppercase
+            line-height: 14px
+            &:hover
+              background-color: lighten(#1bb407,10%)
+            &:focus
+              background-color: #179906
 
 
 table
@@ -417,21 +446,24 @@ td, th
 .key
   border-bottom: 1px solid #ccc
 
-
-.newsletter
-  color: #fff
-  font-family: "SF UI Display-Regular" , sans-serif
-  font-weight: 400
-  font-size: 16px
-  text-transform: uppercase
-  padding: 20px 30px
-  background-color: #1bb407
-  border-radius: 3px
-  box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-  &:hover
-    background-color: lighten(#1bb407,10%)
-  &:focus
-    background-color: #179906
+.wrap_order
+  display: inline-block
+  .newsletter
+    display: block
+    width: 226px
+    color: #fff
+    font-family: "SF UI Display-Regular" , sans-serif
+    font-weight: 400
+    font-size: 16px
+    text-transform: uppercase
+    padding: 20px 30px
+    background-color: #1bb407
+    border-radius: 3px
+    box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+    &:hover
+      background-color: lighten(#1bb407,10%)
+    &:focus
+      background-color: #179906
 
 .cost_down
   margin-top: 50px
@@ -450,12 +482,13 @@ td, th
         color: #222222
   .cost_right
     display: inline-block
-    //width: 30%
     vertical-align: top
-    padding-top: 47px
+    padding-top: 26px
     padding-left: 120px
     .free
       color: #fff
+      width: 227px
+      display: block
       font-family: "SF UI Display-Regular" , sans-serif
       font-weight: 400
       font-size: 16px
@@ -498,22 +531,30 @@ td, th
     font-weight: 300
     color: rgba(255,255,255, .5)
     margin-top: 70px
-  .form_footer input
-    background: transparent
-    border: 1px solid white
-    border-radius: 5px
-    width: 180px
-    margin: 20px 10px
-    padding: 7px 15px
-    color: #fff
-    font-size: 14px
-    font-family: "SF UI Display-Regular" , sans-serif
-    font-weight: 400
-    outline: none
-  .form_footer input[type=submit]
+  .form_footer
+    label
+      display: inline-block
+    input
+      background: transparent
+      border: 1px solid white
+      border-radius: 5px
+      width: 180px
+      margin: 0 10px
+      padding: 7px 15px
+      color: #fff
+      font-size: 14px
+      font-family: "SF UI Display-Regular" , sans-serif
+      font-weight: 400
+      outline: none
+  .form_footer input[type=email]
+    margin-right: 20px
+  .form_footer button[type=submit]
     cursor: pointer
     font-size: 14px
+    border-radius: 5px
     width: 240px
+    margin: 0
+    padding: 8px 15px
     text-transform: uppercase
     background-color: #1bb407
     box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
@@ -583,27 +624,33 @@ td, th
     display: block
     margin: 0 auto
     color: #222222
-    input
-      //border: 1px solid #1bb407
-      border-radius: 5px
-      font-size: 14px
-      color: #222222
-      margin-top: 10px
-      padding: 7px 67px 7px 15px
-      outline: none
-      border: 1px solid #CCC
-      &:focus
-        border: 1px solid #1bb407
-    input[type=submit]
-      cursor: pointer
-      font-size: 14px
-      padding: 7px 15px
-      width: 237px
-      text-transform: uppercase
-      background-color: #1bb407
-      box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-      border: none
-      color: #fff
+    label
+      display: inline-block
+      input
+        //border: 1px solid #1bb407
+        border-radius: 5px
+        font-size: 14px
+        color: #222222
+        margin-top: 10px
+        //padding: 7px 67px 7px 15px
+        padding: 7px
+        width: 235px
+        outline: none
+        border: 1px solid #CCC
+        &:focus
+          border: 1px solid #1bb407
+      button[type=submit]
+        cursor: pointer
+        font-size: 14px
+        padding: 7px 15px
+        border-radius: 5px
+        margin-top: 9px
+        width: 237px
+        text-transform: uppercase
+        background-color: #1bb407
+        box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+        border: none
+        color: #fff
   ::-webkit-input-placeholder
     color: #222
     opacity: 1
@@ -632,27 +679,33 @@ td, th
     display: block
     margin: 0 auto
     color: #222222
-    input
-      //border: 1px solid #1bb407
-      border-radius: 5px
-      font-size: 14px
-      color: #222222
-      margin-top: 10px
-      padding: 7px 67px 7px 15px
-      outline: none
-      border: 1px solid #CCC
-      &:focus
-        border: 1px solid #1bb407
-    input[type=submit]
-      cursor: pointer
-      font-size: 14px
-      padding: 7px 15px
-      width: 237px
-      text-transform: uppercase
-      background-color: #1bb407
-      box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
-      border: none
-      color: #fff
+    label
+      display: inline-block
+      input
+        //border: 1px solid #1bb407
+        border-radius: 5px
+        font-size: 14px
+        color: #222222
+        margin-top: 10px
+        //padding: 7px 67px 7px 15px
+        padding: 7px
+        width: 235px
+        outline: none
+        border: 1px solid #CCC
+        &:focus
+          border: 1px solid #1bb407
+      button[type=submit]
+        cursor: pointer
+        font-size: 14px
+        padding: 7px 15px
+        border-radius: 5px
+        margin-top: 9px
+        width: 237px
+        text-transform: uppercase
+        background-color: #1bb407
+        box-shadow: 0 1px 2px rgba(10, 11, 12, 0.5)
+        border: none
+        color: #fff
   ::-webkit-input-placeholder
     color: #222
     opacity: 1
@@ -662,6 +715,7 @@ td, th
   ::-moz-placeholder
     color: #222
     opacity: 1
+
 
 .fancybox-close
   top: 7px !important

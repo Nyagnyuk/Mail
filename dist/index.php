@@ -80,7 +80,7 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.css">
 
 
     <!--[if IE]>
@@ -96,14 +96,18 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
 <header class="header jumbotron">
     <div class="container">
         <div class="row">
-            <div class="header_top">
+            <div class="header_top clearfix">
                 <div class="top_lef "> Генератор продаж <br><span>1000</span><span class="client"> клиентов за копейки</span> </div>
                 <div class="top_right ">
                     <ul>
                         <li>Звоните нам по номерам</li>
                         <li><a href="tel:+79852576393">+7(985) 257 63 93</a></li>
                         <li><a href="tel:+74994042688">+7(499) 404 26 88</a></li>
-                        <li class="last"><a class="call_back test" href="#fanc">Обратный звонок</a></li>
+                        <li class="last">
+                            <div class="wrap_a">
+                                <a class="call_back test" href="#fanc">Обратный звонок</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,7 +116,7 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
         <div class="row">
                 <h1>Тысячи новых клиентов за копейки</h1>
                 <div class="header_text">Массовая рассылка в <span>личные сообщения</span> <br> на популярных досках объявления</div>
-            <div class="wow zoomIn">
+            <div class="wrap_more wow zoomIn">
                 <a class="test learn_more" href="#fanc">Узнать больше</a></div>
                   </div>
         <div class="row">
@@ -191,7 +195,7 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
             </ul>
         </div>
         <p>Вообщем для всех, кому надо что-то продать...</p>
-        <div class="wow zoomIn">
+        <div class="wrap_find wow zoomIn">
         <a class="more test"  href="#fanc">Узнать подробнее</a></div>
     </div>
 </section>
@@ -261,7 +265,9 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
                             <p class="number">9990</p>
                             <p >рублей</p>
                         </div>
+                        <div class="a_wrap">
                         <a  class="test" href="#fanc">Заказать</a>
+                            </div>
                     </div>
                 </li>
                 <li>
@@ -272,7 +278,9 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
                             <p class="number">24900</p>
                             <p>рублей</p>
                         </div>
+                        <div class="a_wrap">
                         <a class="test"  href="#fanc">Заказать</a>
+                            </div>
                     </div>
                 </li>
                 <li>
@@ -283,7 +291,9 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
                             <p class="number">39900</p>
                             <p>рублей</p>
                         </div>
+                        <div class="a_wrap">
                         <a class="test" href="#fanc">Заказать</a>
+                            </div>
                     </div>
                 </li>
             </ul>
@@ -312,7 +322,7 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
                 </tbody>
             </table>
         </div>
-        <div class="wow zoomIn">
+        <div class="wrap_order wow zoomIn">
         <a class="test newsletter" href="#fanc">заказать рассылку</a></div>
         <div class="row cost_down">
             <div class="cost_left">
@@ -344,7 +354,8 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
         <label><input type="text" name="name" required placeholder="Имя"></label>
         <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
         <label><input type="email" name="email" required placeholder="E-mail"></label>
-        <label><input type="submit" class=" wow zoomIn" value="получить демо-версию"></label>
+<!--        <label class="label_top"><input type="submit" class=" wow zoomIn" value="получить демо-версию"></label>-->
+        <label class="label_top"><button type="submit" class=" wow zoomIn" value="получить демо-версию">получить демо-версию</button></label>
 
     </form>
 
@@ -361,7 +372,8 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
         <label><input type="text" name="name" required placeholder="Имя"></label>
         <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
         <label><input type="email" name="email" required placeholder="E-mail"></label>
-        <label><input type="submit"  value="оставить заявку"></label>
+        <label><button type="submit"  value="оставить заявку">оставить заявку</button></label>
+
     </form>
 </div>
 
@@ -376,7 +388,7 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
         <label><input type="tel" name="tel" required placeholder="Ваш телефон"></label>
         <label><input type="email" name="email" required placeholder="E-mail"></label>
         <label><input type="hidden" name="package" value="free"></label>
-        <label><input type="submit"  value="оставить заявку"></label>
+        <label><button type="submit"  value="оставить заявку">оставить заявку</button></label>
     </form>
 </div>
 
@@ -390,6 +402,6 @@ if (isset($_POST['name']) && isset($_POST['tel']) && isset($_POST['email'])){
 <script src="js/wow.min.js"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
 
-<script src="js/common.min.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
